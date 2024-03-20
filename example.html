@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+</head>
+<body>
+    <header>
+    <h1>Welcome to The Pollyanna Picker</h1>
+    </header>
+  <script src="playground.js"></script>
+  <p>This is the body text of my webpage. You can add any content here.</p>
+  <div id="dictionary-container">
+    <!-- This is where the dictionary content will be displayed -->
+  </div>
+
+  <script>
+    // Wait for the page to load before accessing the dictionary
+    window.onload = function() {
+        // Access the dictionary from the JavaScript file
+        const myDictionary = window.results; // Assuming 'myDictionary' is a global variable in playground.js
+
+        // Access the div container where we want to display the dictionary
+        const dictionaryContainer = document.getElementById('dictionary-container');
+
+        // Create a <ul> element to hold the dictionary items
+        const ul = document.createElement('ul');
+
+        // Loop through the dictionary and create <li> elements for each key-value pair
+        for (const key in myDictionary) {
+            if (myDictionary.hasOwnProperty(key)) {
+                // Create a <li> element for each key-value pair
+                const li = document.createElement('li');
+                // Set the text content of the <li> element to the key-value pair
+                li.textContent = `${key}: ${myDictionary[key]}`;
+                // Append the <li> element to the <ul> element
+                ul.appendChild(li);
+            }
+        }
+
+        // Append the <ul> element to the dictionary container
+        dictionaryContainer.appendChild(ul);
+    };
+  </script>
+
+</body>
+</html>
