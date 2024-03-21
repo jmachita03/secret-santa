@@ -28,6 +28,8 @@ removeValueFromArray(myRestrictions['Joseph'], ['Mike', 'Bev', 'Joseph', 'Buckle
 
 
 function generatePollyanna(restrictions, runs, allowPairs){
+    console.log("CALLED")
+    console.log(restrictions)
     if (runs > 9){
         console.log(`ERROR: No solution found in ${runs} attempts. Please adjust restrictions.`)
         return NaN
@@ -40,6 +42,8 @@ function generatePollyanna(restrictions, runs, allowPairs){
 
     for (let i = 0; i < lengths.length; i++) {
         let person = lengths[i][0];
+        console.log("HOOOO")
+        console.log(restrictions)
         let available = keys.filter(x => !restrictions[person].includes(x))
         available = available.filter(x => !Object.values(pairings).includes(x))
         // console.log(`Available for ${person}: ${available}`)
@@ -56,9 +60,9 @@ function generatePollyanna(restrictions, runs, allowPairs){
     return pairings
 }
 
-let myAllowPairs = true
-let myRuns = 0
-results = generatePollyanna(myRestrictions, myRuns, myAllowPairs)
-console.log(pairings)
+// let myAllowPairs = true
+// let myRuns = 0
+// results = generatePollyanna(myRestrictions, myRuns, myAllowPairs)
+// console.log(pairings)
 
-window.myList = Object.values(results);
+// window.myList = Object.values(results);

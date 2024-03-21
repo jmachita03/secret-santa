@@ -8,17 +8,64 @@
     <header>
     <h1>Welcome to The Pollyanna Picker</h1>
     </header>
+
+  <form id="userInputForm">
+    <label for="userInput">Who Is Participating?</label>
+    <input type="text" id="userInput" name="userInput">
+    <button type="submit">Add Participant</button>
+  </form>
+  <script src="event_handler.js"></script>
+
+  <button id="finishedAdding">All Done!</button>
+
+  <script src="array_display.js"></script>
+
+  <script>
+    const button = document.getElementById("finishedAdding");
+    button.addEventListener("click", function() {
+    // Write your JavaScript code here
+    console.log("Button clicked!");
+    displayArray(participants)
+    
+    // let rest = participants.map(x => ({[x]: [x]}));
+    // console.log(rest)
+    });
+  </script>
+
+<button id="runIt">Let's See Who Has Whom!</button>
+
+
   <script src="algo.js"></script>
-  <p>This is the body text of my webpage. You can add any content here.</p>
+
+  <div id="array-container">
+    <!-- This is where the dictionary content will be displayed -->
+  </div>
+
   <div id="dictionary-container">
     <!-- This is where the dictionary content will be displayed -->
   </div>
 
   <script>
+    const button2 = document.getElementById("runIt");
+    button2.addEventListener("click", function() {
+    // Write your JavaScript code here
+    console.log("Button2 clicked!");
+    let rest = {};
+    for (let x of participants) {
+      rest[x] = [x];
+    }
+    console.log(rest)
+    const myDictionary = generatePollyanna(rest, 0, true);
+    console.log(myDictionary)
+    displayDictionary(myDictionary)
+    });
+  </script>
+
+  <!-- <script>
     // Wait for the page to load before accessing the dictionary
     window.onload = function() {
         // Access the dictionary from the JavaScript file
-        const myDictionary = window.results; // Assuming 'myDictionary' is a global variable in playground.js
+        const myDictionary = generatePollyanna(rest, ); // Assuming 'myDictionary' is a global variable in playground.js
 
         // Access the div container where we want to display the dictionary
         const dictionaryContainer = document.getElementById('dictionary-container');
@@ -41,7 +88,7 @@
         // Append the <ul> element to the dictionary container
         dictionaryContainer.appendChild(ul);
     };
-  </script>
+  </script> -->
 
 </body>
 </html>
