@@ -30,6 +30,11 @@ function displayArray(myArray) {
 function displayDictionary(myDictionary) {
     // Access the div container where we want to display the dictionary
     const dictionaryContainer = document.getElementById('dictionary-container');
+    if (!dictionaryContainer) {
+        dictionaryContainer = document.createElement("div");
+        dictionaryContainer.id = "dictionary-container";
+        document.body.appendChild(dictionaryContainer);
+    }
     let heading = document.createElement("h3");
     heading.textContent = "Here are the results! Giver : Receiever";
     dictionaryContainer.appendChild(heading);
